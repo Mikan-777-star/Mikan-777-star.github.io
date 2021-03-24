@@ -30,6 +30,16 @@ function next(){
         break;
         case 14:s += '<h1>シリアス回</h1><img src="momo51.png" class="img"><h4>私がこれから何をしても、今まで何をしていても、変わらずにいてくれる？</h4><img src="momo52.png" class="img"><h4>二人の象徴</h4><img src="momo53.png" class="img"><h4>まだちぎれないみたいだね</h4><img src="momo54.png" class="img"><h4>浮かれフルーツポンチ</h4>'
         break;
+        case 15:s += '<h1>ここから直撮りタイム</h1><img src="momo1.jpg" class="img"><h4>いらいらもんもんも</h4><img src="momo2.jpg" class="img"><h4>ミカンママテロ</h4><img src="momo3.jpg" class="img"><h4>大天使桃ちゃん</h4><img src="momo4.jpg" class="img"><h4>魔力は物理で超えられる…</h4>'
+        break;
+        case 16:s += '<h1>喫茶あすら+温泉回</h1><img src="momo5.jpg" class="img"><h4>洗脳シャミ子</h4><img src="momo6.jpg" class="img"><h4>ひょこっと店長</h4><img src="momo7.jpg" class="img"><h4>上腕二頭筋を美しく鍛えよう！</h4>'
+        break;
+        case 17:s += '<h1>もんも闇落ち</h1><img src="momo8.jpg" class="img"><h4>猫とトーク！</h4><img src="momo9.jpg" class="img"><h4>ここ好き…二期ででたら死ぬ</h4><img src="momo10.jpg" class="img"><h4>シャミ子、ようやくちぎれたみたいだね！</h4>'
+        break;
+        case 18:s += '<h1>4巻開始</h1><img src="momo11.jpg" class="img"><h4>桃さんご先祖をおいていかないであげて…</h4><img src="momo12.jpg" class="img"><h4>シャミ子エッチなことするの？</h4><img src="momo13.jpg" class="img"><h4>載せ忘れた、桃のおにぎりちゃん</h4><img src="momo14.jpg" class="img"><h4>座りなおして勉強しよう！</h4>'
+        break;
+        case 19:s += '<h1>もんも闇落ちその2</h1><h4><img src="momo15.jpg" class="img">桃さんの闇落ち回</h4><img src="momo16.jpg" class="img"><h4>あーん</h4><img src="momo17.jpg" class="img"><h4>シャミ子の性癖？</h4><img src="momo18.jpg" class="img"><h4>普段から笑えるようになったんだね…良かった</h4>'
+        break;
         default:page = 0;
     }
     s += '<br><a href="javascript:void(0)" onclick="next()">next</a></main>'

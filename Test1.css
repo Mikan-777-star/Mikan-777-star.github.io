@@ -33,4 +33,7 @@ a:link, a:visited {
         margin: 0 auto;
         width: auto;
     }
+    .img{
+        width: 30%;
+    }
 }
