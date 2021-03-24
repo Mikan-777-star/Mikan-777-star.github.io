@@ -43,6 +43,12 @@ function next(){
         case 20:s += '<h1>もんもさん</h1><img src="momo20.jpg" class="img"><h4>仮病もんも</h4><img src="momo21.jpg" class="img"><h4>ハッピーバースデーマイシャドウミストレス</h4><img src="momo22.jpg" class="img"><h4>闇落ちしそうなもんも</h4><img src="momo23.jpg" class="img"><h4>ご先祖消し炭になる</h4>'
         break;
         case 21:s += '<h1>もんも闇落ちその2</h1><img src="momo24.jpg" class="img"><h4>桃さんシャミ子の地雷踏む</h4><img src="momo25.jpg" class="img"><h4>桃さんの告白</h4><img src="momo26.jpg" class="img"><h4>宿敵との約束</h4><img src="momo27.jpg" class="img"><h4>桃さんやっぱシャミ子のこと知りたいんだね<br>    (二人ともかわいいね)</h4>';
+        break
+        case 22:s += '<h1>もんも闇落ちその2</h1><img src="momo55.png" class="img"><h4>桃さん宇宙のめくれを見る</h4><img src="momo56.png" class="img"><h4>26980の女</h4><img src="momo57.png" class="img"><h4>???「oya?」</h4><img src="momo58.png" class="img"><h4>    新婚の会話かな？</h4>'
+        break
+        case 23:s += '<h1>もんも闇落ちその2</h1><img src="momo59.png" class="img"><h4>クソダサフォーム</h4><img src="momo60.png" class="img"><h4>クソダサ批判回</h4><img src="momo61.png" class="img"><h4>すーぱーえちえちフォーム</h4><img src="momo62.png" class="img"><h4>    この後シャミ子はしばかれたようだ</h4>'
+        break
+        
         default:page = 0;
     }
     s += '<br><a href="javascript:void(0)" onclick="next()">next</a></main>'
