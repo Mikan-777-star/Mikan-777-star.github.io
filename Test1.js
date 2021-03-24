@@ -38,8 +38,11 @@ function next(){
         break;
         case 18:s += '<h1>4巻開始</h1><img src="momo11.jpg" class="img"><h4>桃さんご先祖をおいていかないであげて…</h4><img src="momo12.jpg" class="img"><h4>シャミ子エッチなことするの？</h4><img src="momo13.jpg" class="img"><h4>載せ忘れた、桃のおにぎりちゃん</h4><img src="momo14.jpg" class="img"><h4>座りなおして勉強しよう！</h4>'
         break;
-        case 19:s += '<h1>もんも闇落ちその2</h1><h4><img src="momo15.jpg" class="img">桃さんの闇落ち回</h4><img src="momo16.jpg" class="img"><h4>あーん</h4><img src="momo17.jpg" class="img"><h4>シャミ子の性癖？</h4><img src="momo18.jpg" class="img"><h4>普段から笑えるようになったんだね…良かった</h4>'
+        case 19:s += '<h1>もんも闇落ちその2</h1><img src="momo15.jpg" class="img"><h4>桃さんの闇落ち回</h4><img src="momo16.jpg" class="img"><h4>あーん</h4><img src="momo17.jpg" class="img"><h4>シャミ子の性癖？</h4><img src="momo18.jpg" class="img"><h4>普段から笑えるようになったんだね…良かった</h4>'
         break;
+        case 20:s += '<h1>もんもさん</h1><img src="momo20.jpg" class="img"><h4>仮病もんも</h4><img src="momo21.jpg" class="img"><h4>ハッピーバースデーマイシャドウミストレス</h4><img src="momo22.jpg" class="img"><h4>闇落ちしそうなもんも</h4><img src="momo23.jpg" class="img"><h4>ご先祖消し炭になる</h4>'
+        break;
+        case 21:s += '<h1>もんも闇落ちその2</h1><img src="momo24.jpg" class="img"><h4>桃さんシャミ子の地雷踏む</h4><img src="momo25.jpg" class="img"><h4>桃さんの告白</h4><img src="momo26.jpg" class="img"><h4>宿敵との約束</h4><img src="momo27.jpg" class="img"><h4>桃さんやっぱシャミ子のこと知りたいんだね<br>    (二人ともかわいいね)</h4>';
         default:page = 0;
     }
     s += '<br><a href="javascript:void(0)" onclick="next()">next</a></main>'
