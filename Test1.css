@@ -29,6 +29,9 @@ a:link, a:visited {
     text-decoration: none;
 }
 @media (max-width: 700px) {
+    body{
+        font-size: 50%;
+    }
     main {
         margin: 0 auto;
         width: auto;
