@@ -57,13 +57,20 @@ function next(){
         case 27:s += '<img src="momo72.png" class="img"><h4></h4><img src="momo73.png" class="img"><h4>    桃さんはシャミ子に巡り会えて良かった…<br>    これからもシャミ子と桃、幸せになってね</h4>'
         break;
         case 28:s +=`
-        あとがき
-        このサイトを作らせてもらった大彗星みかんです
-        桃誕までに間に合わせようと頑張ったため
+        <h4>
+        あとがき<br>
+        このサイトを作らせてもらった大彗星みかんです<br>
+        桃誕までに間に合わせようと頑張ったためつたないサイトですが<br>
+        ここまで読んでいただきありがとうございます<br>
+        桃さんは壮絶な過去を歩んできてこそこれだけ祝われているんだと思います<br>
+        これからもシャミ子と桃、これからもしあわせでいることを願います<br></h4>
         `
         default:page = 0;
     }
-    s += '<br><a href="javascript:void(0)" onclick="next()">next</a></main>'
+    if(page !== 28){
+        s += '<br><a href="javascript:void(0)" onclick="next()">next</a>';
+    }
+    s += '</main>'
     document.getElementById('body').innerHTML = s;
     page++;
 }
