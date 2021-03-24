@@ -63,11 +63,12 @@ function next(){
         桃誕までに間に合わせようと頑張ったためつたないサイトですが<br>
         ここまで読んでいただきありがとうございます<br>
         桃さんは壮絶な過去を歩んできてこそこれだけ祝われているんだと思います<br>
-        これからもシャミ子と桃、これからもしあわせでいることを願います<br></h4>
+        これからもシャミ子と桃、これからもしあわせでいることを願います<br>
+        あと、<a href = "https://www.tbs.co.jp/anime/machikado/">桃生誕祭の公式の方が数千倍いいから</a>見てね</h4>
         `
         default:page = 0;
     }
-    if(page !== 28){
+    if(s.indexOf('img') > -1){
         s += '<br><a href="javascript:void(0)" onclick="next()">next</a>';
     }
     s += '</main>'
