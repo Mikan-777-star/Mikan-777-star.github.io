@@ -34,7 +34,7 @@ function next(){
         break;
         case 16:s += '<h1>喫茶あすら+温泉回</h1><img src="momo5.jpg" class="img"><h4>洗脳シャミ子</h4><img src="momo6.jpg" class="img"><h4>ひょこっと店長</h4><img src="momo7.jpg" class="img"><h4>上腕二頭筋を美しく鍛えよう！</h4>'
         break;
-        case 17:s += '<h1>もんも闇落ち</h1><img src="momo8.jpg" class="img"><h4>猫とトーク！</h4><img src="momo9.jpg" class="img"><h4>ここ好き…二期ででたら死ぬ</h4><img src="momo10.jpg" class="img"><h4>シャミ子、ようやくちぎれたみたいだね！</h4>'
+        case 17:s += '<h1>もんも闇落ち</h1><img src="momo8.jpg" class="img"><h4>猫とトーク！</h4><img src="momo9.jpg" class="img"><h4>ここ好き…二期ででたら死ぬ</h4><img src="momo9.jfif" class="img"><h4>桃の初めての笑顔</h4><img src="momo10.jpg" class="img"><h4>シャミ子、ようやくちぎれたみたいだね！</h4>'
         break;
         case 18:s += '<h1>4巻開始</h1><img src="momo11.jpg" class="img"><h4>桃さんご先祖をおいていかないであげて…</h4><img src="momo12.jpg" class="img"><h4>シャミ子エッチなことするの？</h4><img src="momo13.jpg" class="img"><h4>載せ忘れた、桃のおにぎりちゃん</h4><img src="momo14.jpg" class="img"><h4>座りなおして勉強しよう！</h4>'
         break;
@@ -42,13 +42,25 @@ function next(){
         break;
         case 20:s += '<h1>もんもさん</h1><img src="momo20.jpg" class="img"><h4>仮病もんも</h4><img src="momo21.jpg" class="img"><h4>ハッピーバースデーマイシャドウミストレス</h4><img src="momo22.jpg" class="img"><h4>闇落ちしそうなもんも</h4><img src="momo23.jpg" class="img"><h4>ご先祖消し炭になる</h4>'
         break;
-        case 21:s += '<h1>もんも闇落ちその2</h1><img src="momo24.jpg" class="img"><h4>桃さんシャミ子の地雷踏む</h4><img src="momo25.jpg" class="img"><h4>桃さんの告白</h4><img src="momo26.jpg" class="img"><h4>宿敵との約束</h4><img src="momo27.jpg" class="img"><h4>桃さんやっぱシャミ子のこと知りたいんだね<br>    (二人ともかわいいね)</h4>';
+        case 21:s += '<h1>ココスキ</h1><img src="momo24.jpg" class="img"><h4>桃さんシャミ子の地雷踏む</h4><img src="momo25.jpg" class="img"><h4>桃さんの告白</h4><img src="momo26.jpg" class="img"><h4>宿敵との約束</h4><img src="momo27.jpg" class="img"><h4>桃さんやっぱシャミ子のこと知りたいんだね<br>    (二人ともかわいいね)</h4>';
         break
-        case 22:s += '<h1>もんも闇落ちその2</h1><img src="momo55.png" class="img"><h4>桃さん宇宙のめくれを見る</h4><img src="momo56.png" class="img"><h4>26980の女</h4><img src="momo57.png" class="img"><h4>???「oya?」</h4><img src="momo58.png" class="img"><h4>    新婚の会話かな？</h4>'
+        case 22:s += '<h1>最近の桃さんネタ</h1><img src="momo55.png" class="img"><h4>桃さん宇宙のめくれを見る</h4><img src="momo56.png" class="img"><h4>26980の女</h4><img src="momo57.png" class="img"><h4>???「oya?」</h4><img src="momo58.png" class="img"><h4>    新婚の会話かな？</h4>'
         break
-        case 23:s += '<h1>もんも闇落ちその2</h1><img src="momo59.png" class="img"><h4>クソダサフォーム</h4><img src="momo60.png" class="img"><h4>クソダサ批判回</h4><img src="momo61.png" class="img"><h4>すーぱーえちえちフォーム</h4><img src="momo62.png" class="img"><h4>    この後シャミ子はしばかれたようだ</h4>'
+        case 23:s += '<h1>新しいフォーム回</h1><img src="momo59.png" class="img"><h4>クソダサフォーム</h4><img src="momo60.png" class="img"><h4>クソダサ批判回</h4><img src="momo61.png" class="img"><h4>すーぱーえちえちフォーム</h4><img src="momo62.png" class="img"><h4>    この後シャミ子はしばかれたようだ</h4>'
         break
-        
+        case 24:s += '<h1>暴走まちカド</h1><img src="momo63.png" class="img"><h4>フロイト＝我々</h4><img src="momo64.png" class="img"><h4>これがシャミ子なら桃は暴走する</h4><img src="momo65.png" class="img"><h4>すーぱーえちえちフォーム</h4><img src="momo65.jfif" class="img"><h4>    まぞくは20分かけて歯を磨いた</h4>'
+        break
+        case 25:s += '<h1>暴走まちカドその2</h1><img src="momo66.png" class="img"><h4>もてもてもんも</h4><img src="momo67.png" class="img"><h4>ももがシャミ子を襲う？！</h4><img src="momo68.png" class="img"><h4>桃、切れた！</h4><img src="momo69.png" class="img"><h4>    シャミ子、切れた！</h4>'
+        break
+        case 26:s += '<h1>桃さんはガチ</h1><img src="momo70.png" class="img"><h4>桃！やみおち！</h4><img src="momo71.png" class="img"><h4>正論</h4>'
+        break;
+        case 27:s += '<img src="momo72.png" class="img"><h4></h4><img src="momo73.png" class="img"><h4>    桃さんはシャミ子に巡り会えて良かった…<br>    これからもシャミ子と桃、幸せになってね</h4>'
+        break;
+        case 28:s +=`
+        あとがき
+        このサイトを作らせてもらった大彗星みかんです
+        桃誕までに間に合わせようと頑張ったため
+        `
         default:page = 0;
     }
     s += '<br><a href="javascript:void(0)" onclick="next()">next</a></main>'

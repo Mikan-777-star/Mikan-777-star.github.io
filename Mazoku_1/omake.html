@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://mikan-777-star.github.io/Mikan_1/Test1.css">
+    <title>おまけ</title>
+</head>
+<body>
+    <script>
+        var audioElem;
+        function PlaySound(i) {
+            audioElem = new Audio();
+            audioElem.src = i;
+            audioElem.play();
+            audioElem.loop = true;
+            document.getElementById('mikan').remove();
+        }
+
+    </script>
+    <main id = "main">
+        <h1>おまけ</h1>
+        <h3>抜きますを永遠に聞きたいとのことで作ります</h3>
+        <a id = "mikan" href="javascript:void(0);" onclick="PlaySound('nukimasu.wav')">スタート</a>
+    </main>
+    <script>
+        function test1(){
+            var ua = navigator.userAgent;
+            console.log(ua);
+            if(ua.indexOf('iPhone') > -1){
+                return true;
+            }
+            if(ua.indexOf('Android') > -1){
+                return true;
+            }
+            if(ua.indexOf('iPad') > -1){
+                return true;
+            }
+            return false;
+        }
+        if(test1()){
+            var main = document.getElementById('main');
+            main.style.fontSize = '50%';
+            main.style.width = 'auto';
+        }
+    </script>
+</body>
+</html>
