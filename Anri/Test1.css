@@ -2,6 +2,10 @@
     float: none;
     width: 90%;
 }
+.profimg{
+    float: none;
+    width: 45%;
+}
 #header{
     font-size: 5em;
 }
