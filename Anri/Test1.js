@@ -10,7 +10,7 @@ var mainfunc = () => {
 var description = (int_s) => {
     switch (int_s) {
         case 1:return '情報マシマシ杏里ちゃん　<br> 杏里ちゃんの情報がどっから来るのか気になる'
-        case 2:return 'ごせんぞう誕生の瞬間である　<br>　シャミ子っていうあだ名作ったのも杏里ちゃんだし<br>　'
+        case 2:return 'ごせんぞう誕生の瞬間である　<br>　<br>　'
         default:
             break;
     }
