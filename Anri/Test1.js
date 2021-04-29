@@ -9,8 +9,10 @@ var mainfunc = () => {
 }
 var description = (int_s) => {
     switch (int_s) {
-        case 1:return '情報マシマシ杏里ちゃん　<br> 杏里ちゃんの情報がどっから来るのか気になる'
-        case 2:return 'ごせんぞう誕生の瞬間である　<br>　<br>　'
+        case 1:return 'マシマシにしといた杏里ちゃん　<br> 杏里ちゃんの情報がどっから来るのか気になる'
+        case 2:return 'ごせんぞう誕生の瞬間である　<br>　杏里ちゃんあだ名の付け方がうまいな…　'
+        case 3:return '情報屋杏里ちゃん　<br>　さたんや…'
+        case 4:
         default:
             break;
     }
