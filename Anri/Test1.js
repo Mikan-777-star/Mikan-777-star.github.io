@@ -24,6 +24,6 @@ var description = (int_s) => {
         case 8:return '杏里ちゃんもやっぱり胸があｒ（殴'
         case 9:return 'これからはシャミ子のことを本気で考えるよ！<br>（肉を焼け）'
 
-        default:return null;
+        default:return "シャミ子が悪いんだよ";
     }
 }
