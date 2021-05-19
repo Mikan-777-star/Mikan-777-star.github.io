@@ -35,9 +35,9 @@ var str = `{
         "・中出し"]
 }`
 const goroku = JSON.parse(str).goroku;
+const ans = document.getElementById('ans');
 function random_goroku(){
     console.log(goroku)
-    return goroku[Math.floor(Math.random() * goroku.length)];
+    ans.innerHTML = goroku[Math.floor(Math.random() * goroku.length)];
 }
 
-document.getElementById('ans').innerHTML = random_goroku();
