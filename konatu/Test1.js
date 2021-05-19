@@ -37,7 +37,7 @@ var str = `{
 const goroku = JSON.parse(str).goroku;
 const ans = document.getElementById('ans');
 function random_goroku(){
-    console.log(goroku)
     ans.innerHTML = goroku[Math.floor(Math.random() * goroku.length)];
+    console.log(ans.innerHTML)
 }
 
