@@ -56,11 +56,12 @@ convertBtn.addEventListener('click', async () => {
     const start = performance.now();
     // 無劣化コンテナ詰め替え (-c copy) + Web再生最適化 (+faststart)
     const exitCode = await ffmpeg.exec([
+      '-fflags', '+genpts',
       '-i', inputPath,
       '-c', 'copy',
-      '-movflags', '+faststart',
       outputName
     ]);
+    
 
     if (exitCode !== 0) {
       throw new Error(`FFmpeg exited with code ${exitCode}. Audio codec might be incompatible with MP4.`);
