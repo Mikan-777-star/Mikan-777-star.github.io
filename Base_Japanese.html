@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaseJapanese Encoder/Decoder (PoC)</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #121212;
+            color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 800px;
+        }
+        h1 { text-align: center; color: #ff9800; margin-bottom: 20px; }
+        p { font-size: 14px; text-align: center; margin-bottom: 20px; }
+        textarea {
+            width: 100%; height: 200px; background-color: #2c2c2c;
+            color: #f1f1f1; border: 1px solid #444; border-radius: 4px;
+            padding: 10px; font-family: inherit; resize: vertical; margin-bottom: 10px;
+        }
+        .controls { display: flex; justify-content: space-between; gap: 10px; }
+        button {
+            flex-grow: 1; padding: 12px; border: none; border-radius: 4px;
+            cursor: pointer; font-weight: bold; transition: background-color 0.2s;
+        }
+        button:disabled { background-color: #555 !important; color: #888 !important; cursor: not-allowed; }
+        button#encodeBtn { background-color: #ff9800; color: #121212; }
+        button#encodeBtn:hover:not(:disabled) { background-color: #ffb74d; }
+        button#decodeBtn { background-color: #f1f1f1; color: #121212; }
+        button#decodeBtn:hover:not(:disabled) { background-color: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BaseJapanese</h1>
+        <p>A 10-bit Encoder/Decoder PoC in Japanese Kanji.</p>
+        <textarea id="inputArea" placeholder="辞書データを読み込み中..." disabled></textarea>
+        <div class="controls">
+            <button id="encodeBtn" disabled>ENCODE</button>
+            <button id="decodeBtn" disabled>DECODE</button>
+        </div>
+    </div>
+
+    <script>
+        class BaseJapanese {
+            constructor(tableArray) {
+                if (!Array.isArray(tableArray) || tableArray.length !== 1024) {
+                    throw new Error("辞書配列の文字数が1024文字じゃないわよ。設計破綻ね。");
+                }
+                this.table = tableArray;
+                this.inverse_table = new Map();
+                for (let i = 0; i < this.table.length; i++) {
+                    this.inverse_table.set(this.table[i], i);
+                }
+                this.padding_char = "。";
+            }
+
+            encode(text) {
+                const encoder = new TextEncoder();
+                const textBytes = encoder.encode(text);
+                const size = textBytes.length;
+
+                if (size > 0xFFFFF) throw new Error("データ長が20bitの限界（約1MB）を超えているわ。");
+
+                let result = ["我", "君", "友"];
+                result.push(this.table[size & 0x3FF]);
+                result.push(this.table[(size >> 10) & 0x3FF]);
+
+                for (let i = 0; i < size; i += 5) {
+                    const chunk = textBytes.slice(i, i + 5);
+                    const paddingNeeded = 5 - chunk.length;
+
+                    let buffer = 0n;
+                    for (let j = 0; j < chunk.length; j++) {
+                        buffer = (buffer << 8n) | BigInt(chunk[j]);
+                    }
+
+                    if (paddingNeeded > 0) buffer <<= BigInt(paddingNeeded * 8);
+
+                    const neededCharsCount = Math.floor((chunk.length * 8 + 9) / 10);
+                    for (let j = 0; j < 4; j++) {
+                        if (j < neededCharsCount) {
+                            const shift = BigInt(10 * (3 - j));
+                            const idx = Number((buffer >> shift) & 0x3FFn);
+                            result.push(this.table[idx]);
+                        } else {
+                            result.push(this.padding_char);
+                        }
+                    }
+                }
+                return result.join("");
+            }
+
+            decode(encodedStr) {
+                if (!encodedStr.startsWith("我君友")) throw new Error("ヘッダーが「我君友」じゃないわよ。");
+
+                const header0 = encodedStr.charAt(3);
+                const header1 = encodedStr.charAt(4);
+                const size = this.inverse_table.get(header0) | (this.inverse_table.get(header1) << 10);
+
+                const dataPart = encodedStr.slice(5);
+                let resultBytes = [];
+
+                for (let i = 0; i < dataPart.length; i += 4) {
+                    const chunk = dataPart.slice(i, i + 4);
+                    let buffer = 0n;
+                    let validCharCount = 0;
+
+                    for (let j = 0; j < chunk.length; j++) {
+                        const char = chunk[j];
+                        if (char === this.padding_char) break;
+                        buffer = (buffer << 10n) | BigInt(this.inverse_table.get(char));
+                        validCharCount++;
+                    }
+
+                    if (validCharCount === 0) continue;
+
+                    const actualBits = validCharCount * 10;
+                    let totalBuffer = buffer << BigInt(40 - actualBits);
+                    const numBytes = Math.floor(actualBits / 8);
+
+                    for (let j = 0; j < numBytes; j++) {
+                        const shift = BigInt(8 * (4 - j));
+                        resultBytes.push(Number((totalBuffer >> shift) & 0xFFn));
+                    }
+                }
+
+                resultBytes = resultBytes.slice(0, size);
+                const decoder = new TextDecoder("utf-8");
+                return decoder.decode(new Uint8Array(resultBytes));
+            }
+        }
+
+        let bj = null;
+        const inputArea = document.getElementById('inputArea');
+        const encodeBtn = document.getElementById('encodeBtn');
+        const decodeBtn = document.getElementById('decodeBtn');
+
+        // fetchを使った非同期初期化処理
+        async function init() {
+            try {
+                // base_japanese_dict.json が同じ階層にある前提よ
+                const response = await fetch('base_japanese_dict.json');
+                if (!response.ok) throw new Error(`HTTPエラー: ${response.status}`);
+                
+                const tableArray = await response.json();
+                bj = new BaseJapanese(tableArray);
+                
+                // 読み込み完了後にUIを有効化
+                inputArea.disabled = false;
+                encodeBtn.disabled = false;
+                decodeBtn.disabled = false;
+                inputArea.placeholder = "テキストを入力、またはエンコードされたBaseJapaneseを貼り付けて...";
+            } catch (error) {
+                inputArea.placeholder = `辞書の読み込みに失敗したわよ。\n詳細: ${error.message}\nローカルサーバー(python3 -m http.server 等)で起動しているか確認しなさい。`;
+            }
+        }
+
+        encodeBtn.addEventListener('click', () => {
+            if (!bj || !inputArea.value) return;
+            try { inputArea.value = bj.encode(inputArea.value); } 
+            catch (e) { alert(`エンコード失敗: ${e.message}`); }
+        });
+
+        decodeBtn.addEventListener('click', () => {
+            if (!bj || !inputArea.value) return;
+            try { inputArea.value = bj.decode(inputArea.value); } 
+            catch (e) { alert(`デコード失敗: ${e.message}`); }
+        });
+
+        // 初期化の実行
+        init();
+    </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+/conv/*
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: require-corp
+  Cross-Origin-Resource-Policy: same-origin
+
+/conv/*.js
+  Content-Type: application/javascript; charset=utf-8
+
+/conv/*.wasm
+  Content-Type: application/wasm
+  Cache-Control: public, max-age=31536000, immutable

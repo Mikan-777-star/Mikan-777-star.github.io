@@ -1,0 +1,31 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>分散掲示板</title>
+</head>
+<body>
+<h1>分散掲示板</h1>
+</body>
+<script>
+    async function measureHashRate() {
+    const data = new TextEncoder().encode("challenge_data_for_fair_pow");
+    let count = 0;
+    const startTime = performance.now();
+    
+    console.log("計測開始... 5秒間全力でハッシュを回すわよ！");
+
+    while (performance.now() - startTime < 5000) {
+        // SHA-256を高速に計算（Web Crypto APIを使用）
+        await crypto.subtle.digest('SHA-256', data);
+        count++;
+    }
+
+    const duration = (performance.now() - startTime) / 1000;
+    const rate = Math.round(count / duration);
+    
+    alert(`結果発表：\n5秒間で ${count} 回計算したわ。\nあなたのスマホのハッシュレートは ${rate} H/s よ！`);
+}
+
+measureHashRate();
+</script>
+</html>

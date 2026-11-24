@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Wasm Remuxer (MKV -> MP4)</title>
+  <style>
+    body { font-family: monospace; background: #111; color: #eee; max-width: 720px; margin: 2rem auto; padding: 0 1rem; }
+    .box { border: 1px solid #444; padding: 1.5rem; margin-bottom: 1rem; background: #1a1a1a; }
+    button { background: #2b6cb0; color: #fff; border: none; padding: 0.6rem 1.2rem; cursor: pointer; font-family: inherit; }
+    button:disabled { background: #444; cursor: not-allowed; }
+    pre { background: #000; padding: 1rem; overflow-x: auto; max-height: 300px; border: 1px solid #333; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <h2>Wasm Video Remuxer (Client-Side)</h2>
+  <div class="box">
+    <input type="file" id="uploader" accept=".mkv,.mov,.avi,.webm,.ts">
+    <button id="convertBtn" disabled>Convert to MP4 (-c copy)</button>
+  </div>
+  <div class="box">
+    <div>Status: <span id="status">Initializing Wasm...</span></div>
+    <pre id="log"></pre>
+  </div>
+
+  <script src="./assets/ffmpeg.js"></script>
+  <script src="./assets/util.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
